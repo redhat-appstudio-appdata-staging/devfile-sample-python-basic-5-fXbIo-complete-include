@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/created-by: application-service
+    app.kubernetes.io/instance: devfile-sample-python-basic-rxkd
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: devfile-sample-python-basic-rxkd
+    app.kubernetes.io/part-of: devfile-sample-python-basic-5
+  name: devfile-sample-python-basic-rxkd
+spec:
+  replicas: 1
+  revisionHistoryLimit: 0
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: devfile-sample-python-basic-rxkd
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app.kubernetes.io/instance: devfile-sample-python-basic-rxkd
+    spec:
+      containers:
+      - image: quay.io/redhat-user-workloads-stage/beaumorley-tenant/devfile-sample-python-basic-5/devfile-sample-python-basic-rxkd@sha256:33f566a3fa38b1be43bb925833abddd395e8986f860d71e2c4c3e17091610dfa
+        imagePullPolicy: Always
+        name: container-image
+        ports:
+        - containerPort: 8081
+        resources:
+          requests:
+            cpu: 10m
+            memory: 256Mi
+status: {}
